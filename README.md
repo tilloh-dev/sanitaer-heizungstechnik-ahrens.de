@@ -6,7 +6,7 @@ Neuauflage der Webseite für **Thorsten Ahrens Sanitär- und Heizungstechnik**, 
 
 ## Prototyp live ansehen
 
-### → **<https://timlohse1104.github.io/sanitaer-heizungstechnik-ahrens.de/>**
+### → **<https://tilloh-dev.github.io/sanitaer-heizungstechnik-ahrens.de/>**
 
 Der aktuelle Stand ist über GitHub Pages erreichbar und wird bei jedem Push auf `main` automatisch aktualisiert.
 
@@ -37,7 +37,7 @@ Der Frosch ist als ruhiges, wiederkehrendes Element im Logo (Navbar & Footer) so
 - Karten-Embed über OpenStreetMap
 - Hosting: **GitHub Pages** (Branch `main`)
 
-Keine Build-Schritte, keine Abhängigkeiten – die `index.html` ist direkt lauffähig.
+Keine Build-Schritte – die `index.html` ist direkt lauffähig. Einzige Dev-Abhängigkeit ist `html-validate` für `pnpm lint`.
 
 ## Lokale Vorschau
 
