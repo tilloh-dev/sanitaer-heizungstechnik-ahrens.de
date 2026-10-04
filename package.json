@@ -1,0 +1,11 @@
+{
+  "name": "sanitaer-heizungstechnik-ahrens.de",
+  "private": true,
+  "packageManager": "pnpm@12.9.0",
+  "scripts": {
+    "lint": "html-validate index.html"
+  },
+  "devDependencies": {
+    "html-validate": "^11.16.1"
+  }
+}
