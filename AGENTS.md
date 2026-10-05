@@ -2,27 +2,23 @@
 
 Static single-page website for Thorsten Ahrens Sanitär- und Heizungstechnik, a plumbing and heating business in Kisdorf; audience: prospective customers.
 
-Prozessstand: tide 0.4.4 (2026-10-04)
+Prozessstand: tide 0.7.0 (2026-10-06)
 Sicherheitsstufe: 1 — public info page without login, forms or user data; contact only via `tel:` and `mailto:`.
 
-## Mandatory rules
+This file is the project's contract: it applies to everyone working here,
+human or AI. How the AI works with Tim comes with the tide plugin; without
+tide, only this file applies.
 
-- Antworten im Chat: kurz und scanbar, Ergebnis oder nächste Handlung zuerst
-  (Details: Skill `tide:klartext`).
-- Texte für Menschen — Doku, PRs, Commits, Backlog: Antwort zuerst, Struktur
-  statt Prosa, nur was der Leser braucht (Details: Skill `tide:leserfreundlich`).
-- Sobald du etwas beantwortet hast, behandle diese Antwort als erledigt. Richte
-  dein Nachdenken in späteren Beiträgen darauf, was die Person jetzt fragt, und
-  gehe frühere Antworten nicht erneut durch, es sei denn, die Person fragt danach
-  oder weist auf ein Problem damit hin, oder du selbst einen Fehler bemerkst.
-- Lege bei der Ausführung einer Aufgabe zuerst eine Aufgabenliste an und halte
-  sie aktuell. Eine Anfrage ist erst erledigt, wenn alle Punkte abgearbeitet
-  sind. Ausnahme: Greift ein Stopp-Kriterium, nenne den Grund zuerst und liste
-  die offenen Punkte auf.
-- Zeit ist wichtig. Aufgabenliste und Checks bleiben davon unberührt.
-- Git und GitHub nur als tilloh-bot. Nie direkt auf `main` pushen, jede
-  Änderung kommt per PR.
-- Sprache: siehe Abschnitt „Language“.
+## Rules
+
+- Every change comes as a PR, never directly to `main`. A PR is merged only
+  when the `gate` check is green and Tim has approved.
+- The design lives in `index.html` (inline CSS) until `docs/DESIGN.md` exists.
+  New design values (colour, font size) only after asking.
+- Dependencies: as few as possible; every new one is justified in the PR.
+- Tests: an E2E smoke test that the page loads (still open); no logic, so no
+  unit tests.
+- Secrets never go into the repo; `.env` files stay local.
 
 ## Language
 
@@ -35,28 +31,18 @@ Sicherheitsstufe: 1 — public info page without login, forms or user data; cont
 | Doku in `docs/` | Englisch |
 | UI-Texte | Deutsch |
 
-Die Pflichtregeln stehen immer auf Deutsch.
+## Requirements
 
-## Workflow
-
-1. **Planen:** Feature im Gespräch klären, Anforderungen nach Vorlage in
-   `docs/requirements/F-<nr>-<name>.md`. Erst nach Freigabe umsetzen.
-2. **Umsetzen:** selbstständig bis zum PR. Nach der Freigabe nennst du Tim die
-   fertige Zeile `/goal F-<nr>: alle FA umgesetzt, Checks grün, PR offen, oder
-   Stopp-Grund genannt`, mit der er die Umsetzung startet.
-3. **Stoppen und fragen** bei: Lücke in den Anforderungen, neuer Dependency,
-   DB-Migration oder anderer Sicherheitsstufe, offener Geschmacksfrage im UI,
-   Gate nicht erfüllbar, besserer Idee zum aktuellen Feature.
-4. **Abschließen:** PR mit Abschluss-Übersicht (Ergebnis, Anforderungen,
-   Checks, Geändert, Nächster Schritt, Beobachtungen). Beobachtungen außerhalb
-   des Features mit Empfehlung nennen; nur angenommene kommen in
-   `docs/backlog.md`.
+Features are described before implementation in
+`docs/requirements/F-<nr>-<name>.md`, from the template `F-000-template.md`.
+After implementation the document is frozen; it gets the line
+`Umgesetzt: PR #<nr> (<date>)`. If a later feature changes the behaviour, the
+new document names it: `Ersetzt: F-<nr> FA-<n>`.
 
 ## Project docs
 
 - `index.html` — the whole site, HTML/CSS/JS inline; images in `static/images/`.
-- [`docs/DESIGN.md`](docs/DESIGN.md) — Design-System. Gewinnt vor Referenzen
-  und spontanen Wünschen im Chat. Neue Werte nur nach Rückfrage.
+- `docs/DESIGN.md` — design system, still open (`/tide:design`).
 - [`docs/requirements/`](docs/requirements/) — Anforderungen `F-<nr>`,
   eingefroren nach Freigabe.
 - [`docs/features/`](docs/features/) — Erklärungen, die mit dem Code aktuell
